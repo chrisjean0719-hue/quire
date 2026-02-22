@@ -3,5 +3,8 @@ export function sheetsInSignature(pageSlots) {
 }
 
 export function totalSheets(signatures) {
-  return signatures.reduce((sum, signature) => sum + sheetsInSignature(signature.pages.length), 0);
+  return signatures.reduce((sum, signature) => {
+    if (Array.isArray(signature.sheets)) return sum + signature.sheets.length;
+    return sum + sheetsInSignature(signature.pages.length);
+  }, 0);
 }

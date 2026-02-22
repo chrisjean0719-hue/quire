@@ -20,11 +20,12 @@ A book looks like this:
   "title": "Sample chapbook",
   "pageCount": 24,
   "signatureSize": 8,
+  "imposition": "quarto",
   "paper": "letter"
 }
 ```
 
-`signatureSize` is a multiple of 4. Each sheet holds four pages, two on each side. A short last signature is padded with blank slots. Paper choices are `letter`, `tabloid`, `a3`, `a4`, and `a5`.
+`signatureSize` is a multiple of 4. `imposition` is `folio`, `quarto`, or `octavo`. Folio puts four pages on a sheet, two on each side, and nests those sheets. Quarto puts eight pages on one sheet. Octavo puts sixteen. A short last signature is padded with blank slots. Paper choices are `letter`, `tabloid`, `a3`, `a4`, and `a5`. Leave `imposition` out to keep the folio layout.
 
 ## Layout
 
@@ -37,7 +38,7 @@ test/       unit tests
 
 ## Next
 
-This is the first of six updates. The other five, about 35 hours, are in [ROADMAP.md](ROADMAP.md).
+This is the second of six updates. The other four, about 29 hours, are in [ROADMAP.md](ROADMAP.md).
 
 ## License
 

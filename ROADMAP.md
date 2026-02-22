@@ -1,10 +1,6 @@
 # Roadmap
 
-Quire plans nested folio signatures for a hand-bound book. Five updates remain after this first slice, about 35 hours.
-
-## Quarto and octavo sheets (6 hours)
-
-Lay a signature onto one large sheet, with several pages on each side, instead of one folio sheet per four pages. Support 8-page and 16-page sheet patterns.
+Quire plans folio, quarto, and octavo sheets for a hand-bound book. Four updates remain, about 29 hours.
 
 ## Parent sheet and grain (6 hours)
 
@@ -34,4 +30,4 @@ Add fold, head, and crop marks to the SVG sheet diagram.
 
 Walk the imposed sheets in reading order and fail the plan if a page is missing, repeated, or out of sequence.
 
-The quarto and octavo sheet is the next update. The current planner only nests folio sheets.
+The parent sheet and grain check is the next update. The current planner does not yet fit a printed sheet onto a larger piece of paper.
