@@ -2,5 +2,7 @@
   "title": "Sample chapbook",
   "pageCount": 24,
   "signatureSize": 8,
-  "paper": "letter"
+  "paper": "letter",
+  "parent": "tabloid",
+  "grain": "long"
 }

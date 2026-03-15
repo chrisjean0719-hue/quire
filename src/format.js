@@ -16,7 +16,14 @@ export function formatPlan(plan) {
     `${plan.pageCount} pages, ${plan.imposition}, ${plan.paper.name}, ${plan.sheetCount} sheets, ${plan.signatures.length} signature${plan.signatures.length === 1 ? '' : 's'}`,
   ];
   if (plan.blankCount > 0) lines.push(`${plan.blankCount} blank padding slot${plan.blankCount === 1 ? '' : 's'}`);
+  if (plan.fit) {
+    const turn = plan.fit.rotated ? ', turned' : '';
+    lines.push(
+      `${plan.parent.name}: ${plan.fit.copies} printed sheet${plan.fit.copies === 1 ? '' : 's'} per parent${turn}, ${plan.parentSheets} parent sheets, ${plan.fit.wasteMm2} mm² waste each`,
+    );
+  }
   lines.push(`fold at ${plan.marks.foldXmm} mm from the left edge`);
+  for (const warning of plan.warnings ?? []) lines.push(`warning: ${warning}`);
 
   for (const signature of plan.signatures) {
     lines.push('');

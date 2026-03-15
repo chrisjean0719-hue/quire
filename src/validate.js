@@ -30,5 +30,11 @@ export function validateBook(book) {
   if (!lookupPaper(book.paper)) {
     errors.push(`paper: Unknown paper "${book.paper}". Use ${paperNames().join(', ')}`);
   }
+  if (book.parent !== undefined && !lookupPaper(book.parent)) {
+    errors.push(`parent: Unknown paper "${book.parent}". Use ${paperNames().join(', ')}`);
+  }
+  if (book.grain !== undefined && book.grain !== 'long' && book.grain !== 'short') {
+    errors.push('grain: grain must be long or short');
+  }
   return errors;
 }

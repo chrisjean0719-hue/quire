@@ -1,5 +1,7 @@
 export { blankCount, blankPages } from './blanks.js';
+export { fitOnParent, parentSheetsNeeded } from './fit.js';
 export { formatPlan } from './format.js';
+export { grainAxis, grainWarnings } from './grain.js';
 export { imposeBookSignature, imposeSignature, pagesOnSheets } from './impose.js';
 export { OCTAVO, QUARTO, pagesPerSheet } from './layouts.js';
 export { foldMarks } from './marks.js';
