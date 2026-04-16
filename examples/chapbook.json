@@ -4,5 +4,6 @@
   "signatureSize": 8,
   "paper": "letter",
   "parent": "tabloid",
-  "grain": "long"
+  "grain": "long",
+  "creepMm": 0.15
 }

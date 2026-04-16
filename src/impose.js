@@ -1,4 +1,5 @@
 import { IMPOSITIONS, pagesPerSheet, placeGrid } from './layouts.js';
+import { folioCreep, leafCreep } from './creep.js';
 
 /**
  * Nested folio imposition. Sheet 0 is the outside of the signature.
@@ -48,14 +49,23 @@ function imposeGrid(pages, layout) {
 }
 
 /** Folio keeps nested sheets. Quarto and octavo use one grid per physical sheet. */
-export function imposeBookSignature(pages, imposition = 'folio') {
+export function imposeBookSignature(pages, imposition = 'folio', creepMm = 0) {
   if (imposition === 'folio') {
     const padded = padTo(pages, 4);
-    return { pages: padded, sheets: imposeSignature(padded) };
+    const sheets = imposeSignature(padded).map((sheet) => ({
+      ...sheet,
+      creepMm: folioCreep(sheet.index, creepMm),
+    }));
+    return { pages: padded, sheets };
   }
   const layout = IMPOSITIONS[imposition];
   if (!layout?.front) throw new Error(`Unknown imposition "${imposition}"`);
-  return imposeGrid(pages, layout);
+  const imposed = imposeGrid(pages, layout);
+  imposed.sheets = imposed.sheets.map((sheet) => ({
+    ...sheet,
+    leafCreepMm: leafCreep(imposition, creepMm),
+  }));
+  return imposed;
 }
 
 export { pagesPerSheet };

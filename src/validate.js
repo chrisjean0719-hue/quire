@@ -36,5 +36,8 @@ export function validateBook(book) {
   if (book.grain !== undefined && book.grain !== 'long' && book.grain !== 'short') {
     errors.push('grain: grain must be long or short');
   }
+  if (book.creepMm !== undefined && (typeof book.creepMm !== 'number' || !Number.isFinite(book.creepMm) || book.creepMm < 0)) {
+    errors.push('creepMm: creepMm must be zero or more');
+  }
   return errors;
 }

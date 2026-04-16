@@ -1,12 +1,8 @@
 # Roadmap
 
-Quire plans folio, quarto, and octavo sheets, and it can fit those sheets onto a parent sheet. Three of the six updates remain.
+Quire plans folio, quarto, and octavo sheets, fits them on a parent sheet, and shifts inner folios for creep. Two of the six updates remain.
 
 ## Still in the six updates
-
-### Creep (5 hours)
-
-Shift inner folios outward by a chosen thickness so the fore-edge stays even after folding.
 
 ### Sheet diagram (6 hours)
 
@@ -64,4 +60,4 @@ Write the imposed pages to a JSON file another tool can print without reading th
 
 Warn when a page number would fall inside a chosen inner margin after folding.
 
-Creep is the next update. The current planner does not shift inner folios.
+The sheet diagram is the next update. The current plan is text only.

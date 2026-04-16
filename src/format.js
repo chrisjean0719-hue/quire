@@ -10,6 +10,12 @@ function side(label, pair) {
   return `  ${label}  ${cell(pair.left).padStart(5)} | ${cell(pair.right).padStart(5)}`;
 }
 
+function creepLabel(sheet) {
+  if (Array.isArray(sheet.leafCreepMm)) return `, leaf creep ${sheet.leafCreepMm.join(' mm, ')} mm`;
+  if (typeof sheet.creepMm === 'number' && sheet.creepMm > 0) return `, creep ${sheet.creepMm} mm`;
+  return '';
+}
+
 export function formatPlan(plan) {
   const lines = [
     plan.title,
@@ -29,7 +35,7 @@ export function formatPlan(plan) {
     lines.push('');
     lines.push(`Signature ${signature.index + 1}`);
     for (const sheet of signature.sheets) {
-      lines.push(` Sheet ${sheet.index + 1}`);
+      lines.push(` Sheet ${sheet.index + 1}${creepLabel(sheet)}`);
       lines.push(side('front', sheet.front));
       lines.push(side('back ', sheet.back));
     }

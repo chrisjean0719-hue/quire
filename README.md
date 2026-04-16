@@ -23,11 +23,12 @@ A book looks like this:
   "imposition": "quarto",
   "paper": "letter",
   "parent": "tabloid",
-  "grain": "long"
+  "grain": "long",
+  "creepMm": 0.15
 }
 ```
 
-`signatureSize` is a multiple of 4. `imposition` is `folio`, `quarto`, or `octavo`. Folio puts four pages on a sheet, two on each side, and nests those sheets. Quarto puts eight pages on one sheet. Octavo puts sixteen. A short last signature is padded with blank slots. Paper choices are `letter`, `tabloid`, `a3`, `a4`, and `a5`. Leave `imposition` out to keep the folio layout. `parent` is the larger sheet those printed sheets are cut from. `grain` is `long` or `short`, and the plan warns when a fold runs along that grain.
+`signatureSize` is a multiple of 4. `imposition` is `folio`, `quarto`, or `octavo`. Folio puts four pages on a sheet, two on each side, and nests those sheets. Quarto puts eight pages on one sheet. Octavo puts sixteen. A short last signature is padded with blank slots. Paper choices are `letter`, `tabloid`, `a3`, `a4`, and `a5`. Leave `imposition` out to keep the folio layout. `parent` is the larger sheet those printed sheets are cut from. `grain` is `long` or `short`, and the plan warns when a fold runs along that grain. `creepMm` is the thickness of one sheet. Each inner folio shifts outward by one more multiple of that thickness so the fore-edge stays even.
 
 ## Layout
 
@@ -40,7 +41,7 @@ test/       unit tests
 
 ## Next
 
-This is the third of six updates. Three updates remain in that series. After the sixth, about 38 hours of later work stay in [ROADMAP.md](ROADMAP.md).
+This is the fourth of six updates. Two updates remain in that series. After the sixth, about 38 hours of later work stay in [ROADMAP.md](ROADMAP.md).
 
 ## License
 

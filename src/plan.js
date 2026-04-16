@@ -23,7 +23,7 @@ export function planBook(book) {
 
   const parts = splitBook(book.pageCount, book.signatureSize);
   const signatures = parts.map((part) => {
-    const imposed = imposeBookSignature(part.pages, imposition);
+    const imposed = imposeBookSignature(part.pages, imposition, book.creepMm ?? 0);
     return {
       index: part.index,
       pages: imposed.pages,
@@ -38,6 +38,7 @@ export function planBook(book) {
     pageCount: book.pageCount,
     signatureSize: book.signatureSize,
     imposition,
+    creepMm: book.creepMm ?? 0,
     paper,
     parent,
     fit,
