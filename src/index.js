@@ -1,5 +1,6 @@
 export { blankCount, blankPages } from './blanks.js';
 export { folioCreep, leafCreep, creepShift } from './creep.js';
+export { sheetDiagrams, sheetSvg } from './diagram.js';
 export { fitOnParent, parentSheetsNeeded } from './fit.js';
 export { formatPlan } from './format.js';
 export { grainAxis, grainWarnings } from './grain.js';

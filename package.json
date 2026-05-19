@@ -1,6 +1,6 @@
 {
   "name": "quire",
-  "version": "0.4.0",
+  "version": "0.5.0",
   "private": true,
   "description": "Plan nested folio signatures for a small hand-bound book",
   "type": "module",
@@ -9,6 +9,7 @@
   },
   "scripts": {
     "plan": "node bin/quire.js plan examples/chapbook.json",
+    "diagram": "node bin/quire.js diagram examples/single-signature.json",
     "test": "node --test"
   },
   "engines": {

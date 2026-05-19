@@ -1,12 +1,8 @@
 # Roadmap
 
-Quire plans folio, quarto, and octavo sheets, fits them on a parent sheet, and shifts inner folios for creep. Two of the six updates remain.
+Quire plans folio, quarto, and octavo sheets, fits them on a parent sheet, shifts inner folios for creep, and draws each sheet side. One of the six updates remains.
 
 ## Still in the six updates
-
-### Sheet diagram (6 hours)
-
-Write an SVG drawing of each sheet side with the page numbers in place.
 
 ### Plan comparison (4 hours)
 
@@ -60,4 +56,4 @@ Write the imposed pages to a JSON file another tool can print without reading th
 
 Warn when a page number would fall inside a chosen inner margin after folding.
 
-The sheet diagram is the next update. The current plan is text only.
+Plan comparison is the next update. The current commands plan one book at a time.
