@@ -1,12 +1,6 @@
 # Roadmap
 
-Quire plans folio, quarto, and octavo sheets, fits them on a parent sheet, shifts inner folios for creep, and draws each sheet side. One of the six updates remains.
-
-## Still in the six updates
-
-### Plan comparison (4 hours)
-
-Compare two book specs by sheet count, blank padding, and trimmed waste.
+Quire plans folio, quarto, and octavo sheets, fits them on a parent sheet, shifts inner folios for creep, draws each sheet side, and compares two plans. The six updates are complete. About 38 hours remain.
 
 ## After the sixth update
 
@@ -56,4 +50,4 @@ Write the imposed pages to a JSON file another tool can print without reading th
 
 Warn when a page number would fall inside a chosen inner margin after folding.
 
-Plan comparison is the next update. The current commands plan one book at a time.
+The padding report is the next piece. The plan counts blank slots, and it does not yet say where they sit in the bound book.

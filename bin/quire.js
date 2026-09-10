@@ -1,26 +1,27 @@
 #!/usr/bin/env node
 import { mkdir, readFile, writeFile } from 'node:fs/promises';
 import path from 'node:path';
+import { comparePlans, formatCompare } from '../src/compare.js';
 import { sheetDiagrams } from '../src/diagram.js';
 import { planBook } from '../src/plan.js';
 
 function usage() {
-  console.error('Usage:\n  quire plan <book.json>\n  quire diagram <book.json> [--out <directory>]');
+  console.error('Usage:\n  quire plan <book.json>\n  quire diagram <book.json> [--out <directory>]\n  quire compare <a.json> <b.json>');
 }
 
 function parseArgs(argv) {
   const command = argv[0];
-  let file;
+  const files = [];
   let out;
   for (let index = 1; index < argv.length; index += 1) {
     if (argv[index] === '--out') {
       out = argv[index + 1];
       index += 1;
     } else {
-      file = argv[index];
+      files.push(argv[index]);
     }
   }
-  return { command, file, out };
+  return { command, files, out };
 }
 
 async function readBook(file) {
@@ -33,7 +34,32 @@ function printProblems(file, plan) {
 }
 
 async function main(argv) {
-  const { command, file, out } = parseArgs(argv);
+  const { command, files, out } = parseArgs(argv);
+  if (command === 'compare') {
+    if (files.length !== 2) {
+      usage();
+      return 1;
+    }
+    const plans = [];
+    for (const file of files) {
+      let book;
+      try {
+        book = await readBook(file);
+      } catch (error) {
+        console.error(`${file}: ${error.message}`);
+        return 1;
+      }
+      const plan = planBook(book);
+      if (!plan.ok) {
+        printProblems(file, plan);
+        return 1;
+      }
+      plans.push(plan);
+    }
+    console.log(formatCompare(files[0], files[1], comparePlans(plans[0], plans[1])));
+    return 0;
+  }
+  const file = files[0];
   if ((command !== 'plan' && command !== 'diagram') || !file) {
     usage();
     return 1;

@@ -1,4 +1,5 @@
 export { blankCount, blankPages } from './blanks.js';
+export { comparePlans, formatCompare, trimmedWaste } from './compare.js';
 export { folioCreep, leafCreep, creepShift } from './creep.js';
 export { sheetDiagrams, sheetSvg } from './diagram.js';
 export { fitOnParent, parentSheetsNeeded } from './fit.js';
